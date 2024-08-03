@@ -1,7 +1,7 @@
-# notif
+# notif.el
 notif is a quick, customizable note creation system to help you organize your notes in GNU Emacs.  
 
-`notif` depends on the Emacs extension `yasnippet`, found in the ELPA repository. You can read more about YASnippet [here](https://joaotavora.github.io/yasnippet).  
+`notif.el` depends on the Emacs extension `yasnippet`, found in the ELPA repository. You can read more about YASnippet [here](https://joaotavora.github.io/yasnippet).  
 
 It uses Emacs' org-mode (other options may be available in the future).
 
@@ -13,9 +13,9 @@ Clone this repository:
 git clone https://github.com/kbelleau/notif
 ```
 
-Symlink, copy, or move `notif.el` into a path that gets loaded in your `init.el`. I typically use a symlink:  
+Either symlink or copy `notif.el` into a path that gets loaded in your `init.el`. I typically use a symlink:  
 ```sh
-ln -s notif/notif.el ~/.emacs.d/lisp/notif.el
+ln -s notif/notif.el .emacs.d/lisp/notif.el
 ```
 
 Ensure your path is enabled in `load-path` and load `notif`:  
@@ -23,7 +23,6 @@ Ensure your path is enabled in `load-path` and load `notif`:
 (add-to-list 'load-path
              (concat user-emacs-directory "lisp/"))
 			 
-(load "notif")
 (require 'notif)
 ```
 
@@ -32,17 +31,17 @@ Ensure your path is enabled in `load-path` and load `notif`:
 
 `notif-read-note`: this function is a wrapper around Emacs' `find-file-read-only`. It will open the `find-file-read-only` prompt inside of your `notif-directory`. With this function, you can open existing notes in read-only.  
 
-(Optional) `notif-find-todo`: this function utilizes Emacs' `find-file` to open your notif TODO file. It is located at: `/notif-directory/TODO`. If this file does not already exist, it will be created, and your `notif-todo-snippet` will be  automatically expanded in the buffer.  
+(Optional) `notif-find-todo`: this function utilizes Emacs' `find-file` to open your notif TODO file. It is located at: `notif-directory/TODO`. If this file does not already exist, it will be created, and your `notif-todo-snippet` will be  automatically expanded in the buffer.  
 
-(Optional) `notif-find-notepad`: this function utilizes Emacs' `find-file` to open your notif Notepad file. It is located at: `/notif-directory/Notepad`. If this file does not already exist, it will be created, and your `notif-notepad-snippet` will be automatically expanded in the buffer.  
+(Optional) `notif-find-notepad`: this function utilizes Emacs' `find-file` to open your notif Notepad file. It is located at: `notif-directory/Notepad`. If this file does not already exist, it will be created, and your `notif-notepad-snippet` will be automatically expanded in the buffer.  
 
-Call the `notif` functions as appropriate. Use keybindings, or call the functions with `M-x <function>`
+Call the notif functions as appropriate. Use keybindings, or call the functions with `M-x <function>`
 
 ## Configuration
-Before using `notif`, you'll want to make some configurations. You'll typically want to configure three things: snippets, defaults, and keybindings.
+Before using `notif.el`, you'll want to make some configurations. You'll typically want to configure three things: snippets, defaults, and keybindings.
 
 ### Setting Up Snippets
-`notif` relies on code snippets created with [YASnippet](https://joaotavora.github.io/yasnippet/snippet-development.html). You'll want to have a basic understanding of how YASnippet works before continuing with notif.  
+`notif.el` relies on code snippets created with [YASnippet](https://joaotavora.github.io/yasnippet/snippet-development.html). You'll want to have a basic understanding of how YASnippet works before continuing with notif.  
 
 Create a snippet for a default note template. Here, you can create whatever you want. The snippet will need to be an `org-mode` snippet.  
 
